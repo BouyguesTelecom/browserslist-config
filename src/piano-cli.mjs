@@ -6,8 +6,8 @@
  */
 
 import minimist from 'minimist'
-import { toBrowserslistFormat } from './browserslist.js'
-import { pianoExtract } from './piano.js'
+import { toBrowserslistFormat } from './browserslist.mjs'
+import { pianoExtract } from './piano.mjs'
 
 // 1. Extract the command line arguments
 

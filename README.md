@@ -8,8 +8,12 @@ In `package.json`:
 
 ```json
 {
+  "devDependencies": {
+    "browserslist": "^4",
+    "browserslist-config-bouyguestelecom": "*"
+  },
   "browserslist": [
-    "extends browserslist-config-bouyguestelecom/production"
+    "extends browserslist-config-bouyguestelecom/production",
     // or:
     "extends browserslist-config-bouyguestelecom/next",
     // and/or:
@@ -17,3 +21,5 @@ In `package.json`:
   ]
 }
 ```
+
+Then proceed to use [autoprefixer](https://github.com/postcss/autoprefixer), [babel](https://github.com/babel/babel/tree/master/packages/babel-preset-env), [postcss](https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env), [stylelint](https://github.com/RJWadley/stylelint-no-unsupported-browser-features), or any other tool that uses [Browserslist](https://github.com/browserslist/browserslist).
