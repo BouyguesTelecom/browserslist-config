@@ -1,6 +1,6 @@
 {
   "name": "browserslist-config-bouyguestelecom",
-  "version": "0.1.6",
+  "version": "0.1.6-20240314",
   "description": "Browserslist config for Bouygues Telecom",
   "bin": {
     "coverage-analyze": "./src/analyze-cli.mjs",
