@@ -1,8 +1,10 @@
-name: Node.js Package
+name: npm publish
 
 on:
   release:
     types: [created]
+  schedule:
+    - cron: '0 0 * * 0' # weekly, every Sunday at 00:00
 
 jobs:
   build:

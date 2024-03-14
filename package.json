@@ -28,8 +28,7 @@
     "build:production": "npm run coverage:production > coverage/production.json && cat coverage/production.json | npx coverage-analyze > coverage/production.tests.json",
     "build:next": "npm run coverage:next > coverage/next.json && cat coverage/next.json | npx coverage-analyze > coverage/next.tests.json",
     "prebuild": "npm run stats",
-    "build": "npm run build:production && npm run build:next",
-    "prepublish": "npm run build"
+    "build": "npm run build:production && npm run build:next"
   },
   "devDependencies": {
     "@types/minimist": "^1.2.5",
