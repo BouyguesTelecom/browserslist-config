@@ -28,6 +28,10 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: npm ci
       - run: KEY=${{secrets.KEY}} npm run build
-      - run: rm .npmrc && npm publish --tag "${{ github.event.release.tag_name }}"
+      - uses: JS-DevTools/npm-publish@v3
+        with:
+          token: ${{secrets.NPMJS_TOKEN}}
+
+      - run: rm .npmrc && npm config set git-tag-version=false && npm version "${{ github.event.release.tag_name }}" && npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPMJS_TOKEN}}
