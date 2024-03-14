@@ -1,0 +1,42 @@
+{
+  "name": "browserslist-config-bouyguestelecom",
+  "version": "0.1.0",
+  "description": "Browserslist config for Bouygues Telecom",
+  "type": "module",
+  "bin": {
+    "coverage-analyze": "./src/analyze-cli.js",
+    "piano-extract": "./src/piano-cli.js"
+  },
+  "main": "index.js",
+  "files": [
+    "browserslist-stats.json",
+    "coverage/*.json",
+    "index.js",
+    "package-lock.json",
+    "package.json",
+    "README.md",
+    "src/*",
+    "tsconfig.json"
+  ],
+  "scripts": {
+    "browserslist": "browserslist",
+    "stats:monthly": "npx piano-extract --from $(date -d '-1 month -1 day' +%Y-%m-%d) --to $(date -d '-1 day' +%Y-%m-%d) --key $KEY",
+    "stats": "npm run stats:monthly > ./browserslist-stats.json",
+    "coverage": "browserslist --ignore-unknown-versions --stats=./browserslist-stats.json \"$QUERY\" --json --coverage",
+    "coverage:production": "QUERY='fully supports es6-module AND fully supports cryptography AND >= 0.2% in my stats AND last 3 years, not dead' npm run coverage",
+    "coverage:next": "QUERY='fully supports es6-module AND fully supports cryptography AND fully supports css-color-function AND >= 0.2% in my stats AND last 3 years, not dead' npm run coverage",
+    "build:production": "npm run coverage:production > coverage/production.json && cat coverage/production.json | npx coverage-analyze > coverage/production.tests.json",
+    "build:next": "npm run coverage:next > coverage/next.json && cat coverage/next.json | npx coverage-analyze > coverage/next.tests.json",
+    "prebuild": "npm run stats",
+    "build": "npm run build:production && npm run build:next",
+    "prepublish": "npm run build"
+  },
+  "devDependencies": {
+    "@types/minimist": "^1.2.5",
+    "@types/node": "^20.11.26",
+    "browserslist": "^4"
+  },
+  "dependencies": {
+    "minimist": "^1.2.8"
+  }
+}

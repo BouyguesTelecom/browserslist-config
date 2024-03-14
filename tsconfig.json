@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "checkJs": true,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "lib": ["esnext", "DOM"],
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "baseUrl": "./"
+  },
+  "exclude": ["node_modules"]
+}
