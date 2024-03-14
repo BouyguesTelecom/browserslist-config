@@ -8,9 +8,9 @@
   },
   "main": "index.js",
   "files": [
+    "*.js",
     "browserslist-stats.json",
     "coverage/*.json",
-    "index.js",
     "package-lock.json",
     "package.json",
     "README.md",
