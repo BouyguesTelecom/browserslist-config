@@ -19,7 +19,7 @@
   ],
   "scripts": {
     "browserslist": "browserslist",
-    "stats:monthly": "npx piano-extract --from $(date -d '-1 month -1 day' +%Y-%m-%d) --to $(date -d '-1 day' +%Y-%m-%d) --key $KEY",
+    "stats:monthly": "npx piano-extract --from `date -u -r $(expr $(date +%s) - 31 \\* 86400 ) \"+%Y-%m-%d\"` --to `date -u -r $(expr $(date +%s) - 1 \\* 86400 ) \"+%Y-%m-%d\"` --key $KEY",
     "stats": "npm run stats:monthly > ./browserslist-stats.json",
     "coverage": "browserslist --ignore-unknown-versions --stats=./browserslist-stats.json \"$QUERY\" --json --coverage",
     "coverage:production": "QUERY='fully supports es6-module AND fully supports cryptography AND >= 0.2% in my stats AND last 3 years, not dead' npm run coverage",
